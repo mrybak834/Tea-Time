@@ -1,6 +1,10 @@
 const path = require('path');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
-module.exports = () => {
+module.exports = (env) => {
+
+    const isProduction = (env === 'production');
+
     return {
         entry: ['babel-polyfill', './src/app.js'],
         output: {
@@ -8,18 +12,42 @@ module.exports = () => {
             filename: 'bundle.js'
         },
         module: {
-            rules: [
-                {
-                    test: /\.js$/,
-                    exclude: /node_modules/,
-                    use: {
-                        loader: "babel-loader"
+            rules: [{
+                // Run bable
+                // Loader: transforms a file before webpack uses it
+                // Test: the files to transform (regex)
+                // Exclude: don't modify these files
+                // Babel-loader uses the .babelrc configuration file to take arguments
+                loader: 'babel-loader',
+                test: /\.js$/,
+                exclude: /node_modules/
+            },
+            {
+                // Use scss (and css) and put it into the dom
+                // Order matters for the 'use' array
+                test: /\.s?css$/,
+                use: [
+                    isProduction ? MiniCssExtractPlugin.loader : 'style-loader',
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            sourceMap: true
+                        }
+                    },
+                    {
+                        loader: 'sass-loader',
+                        options: {
+                            sourceMap: true
+                        }
                     }
-                }
-            ]
+                ]
+            }]
         },
-        mode: 'development',
-        devtool: 'inline-source-map',
+        plugins: [
+            new MiniCssExtractPlugin({ filename: "styles.css" })
+        ],
+        mode: isProduction ? 'production' : 'development',
+        devtool: isProduction ? 'source-map' : 'inline-source-map',
         devServer: {
             contentBase: path.join(__dirname, './public/'),
             historyApiFallback: true,
