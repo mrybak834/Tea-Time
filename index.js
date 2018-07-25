@@ -7,7 +7,7 @@ app.use(express.static(path.join(__dirname, 'client/build')));
 
 
 app.get('/api/', (req, res) => {
-    res.json("Working");
+    res.json("Working!");
 });
 
 
