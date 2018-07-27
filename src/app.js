@@ -1,12 +1,12 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import 'normalize.css/normalize.css';
-import './styles/styles.scss';
+import React from "react";
+import ReactDOM from "react-dom";
+import "normalize.css/normalize.css";
+import "./styles/styles.scss";
 
 const jsx = (
-    <div>
-        <h1>Welcome!</h1>
-    </div>
+  <div>
+    <h1>Welcome!</h1>
+  </div>
 );
 
-ReactDOM.render(jsx, document.getElementById('app'));
+ReactDOM.render(jsx, document.getElementById("app"));
