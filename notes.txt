@@ -1,3 +1,0 @@
-TODO:
-
-set up heroku config vars
