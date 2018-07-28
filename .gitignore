@@ -73,3 +73,7 @@ typings/
 
 # Generated files
 public/dist/
+
+# CSS structure reference
+src/styles/reference
+src/styles/reference/*
