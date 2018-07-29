@@ -17,6 +17,9 @@
                     ".jsx"
                 ]
             }
-        ]
+        ],
+        "react/jsx-one-expression-per-line": "off",
+        "no-console": "off",
+        "import/no-extraneous-dependencies": "off"
     }
 }

@@ -1,15 +1,16 @@
 const path = require("path");
 const webpack = require("webpack");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const dotenv = require("dotenv");
 
 // Specify if we are in dev or prod or test
 // Production on Heroku, Test in testing, development in dev
 process.env.NODE_ENV = process.env.NODE_ENV || "development";
 
 if (process.env.NODE_ENV === "test") {
-  require("dotenv").config({ path: ".env.test" });
+  dotenv.config({ path: ".env.test" });
 } else if (process.env.NODE_ENV === "development") {
-  require("dotenv").config({ path: ".env.development" });
+  dotenv.config({ path: ".env.development" });
 }
 
 module.exports = env => {
