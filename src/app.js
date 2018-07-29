@@ -1,15 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
+import CssBaseline from "@material-ui/core/CssBaseline";
 import configureStore from "./redux/store/config";
 import AppRouter, { history } from "./routers/Router";
-import "normalize.css/normalize.css";
 import "./styles/main.scss";
 
 const store = configureStore();
 const jsx = (
   <Provider store={store}>
-    <AppRouter />
+    <React.Fragment>
+      <CssBaseline />
+      <AppRouter />
+    </React.Fragment>
   </Provider>
 );
 
