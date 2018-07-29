@@ -1,7 +1,22 @@
 {
+    "env": {
+        "browser": true,
+        "jest": true
+    },
+    "extends": [
+        "airbnb",
+        "plugin:prettier/recommended"
+    ],
     "parser": "babel-eslint",
-    "plugins": ["prettier"],
     "rules": {
-      "prettier/prettier": "error"
+        "react/jsx-filename-extension": [
+            "error",
+            {
+                "extensions": [
+                    ".js",
+                    ".jsx"
+                ]
+            }
+        ]
     }
-  }
+}
