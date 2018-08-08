@@ -1,9 +1,9 @@
 import React from "react";
+import TeaInput from "../TeaInput";
 
 const Dashboard = () => (
   <div>
-    <h1>Welcome!</h1>
-    <i className="material-icons">face</i>
+    <TeaInput />
   </div>
 );
 
