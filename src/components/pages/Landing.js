@@ -1,8 +1,9 @@
 import React from "react";
+import Test from "../Test";
 
 const Landing = () => (
   <div>
-    <h1>Landing page</h1>
+    <Test />
   </div>
 );
 
